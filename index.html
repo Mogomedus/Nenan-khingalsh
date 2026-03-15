@@ -4,7 +4,9 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Хингалш и Чlепалгш</title>
+
+<title>Ненан Хингалш</title>
+
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -13,116 +15,210 @@
 
 <header>
 
-<h1 class="editable">Чеченская выпечка</h1>
+<h1>Ненан Хингалш</h1>
+
+<div id="authArea">
 
 <div id="authButtons">
 <button onclick="openLogin()">Войти</button>
 <button onclick="openRegister()">Регистрация</button>
 </div>
 
-<div id="userPanel">
-<span id="username"></span>
-<button id="adminToggle" onclick="toggleAdmin()">Администратор</button>
+<div id="userPanel" style="display:none;">
+<span id="userName"></span>
 <button onclick="logout()">Выйти</button>
+</div>
+
+<button onclick="openTop()">🏆</button>
+
 </div>
 
 <button class="orderBtn" onclick="openOrder()">Заказать</button>
 
 </header>
 
+
 <section class="hero">
-<h2 class="editable">Свежие Хингалш и Чlепалгш</h2>
-<p class="editable">Традиционная чеченская кухня</p>
+
+<h2>Свежие Хингалш и Ч1епалгш</h2>
+<p>Традиционная чеченская кухня</p>
+
 </section>
+
 
 <section class="foods">
+
 <div class="food">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Hingalsh.jpg">
-<h3 class="editable">Хингалш</h3>
+<img src="khingalsh.jpg">
+<h3>Хингалш</h3>
 </div>
+
 <div class="food">
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Chepalghash.jpg">
-<h3 class="editable">Чlепалгш</h3>
+<img src="chepalgsh.jpg">
+<h3>Ч1епалгш</h3>
 </div>
+
 </section>
 
+
 <!-- LOGIN -->
+
 <div class="overlay" id="loginOverlay">
+
 <div class="modal">
+
 <h2>Вход</h2>
+
 <input id="loginName" placeholder="логин">
 <input id="loginPass" type="password" placeholder="пароль">
+
 <button onclick="login()">Войти</button>
-<button class="close" onclick="closeModal()">✕</button>
+
+<button class="close" onclick="closeAll()">✕</button>
+
 </div>
+
 </div>
+
+
 
 <!-- REGISTER -->
+
 <div class="overlay" id="registerOverlay">
+
 <div class="modal">
+
 <h2>Регистрация</h2>
+
 <input id="regName" placeholder="логин">
 <input id="regPass" type="password" placeholder="пароль">
-<p id="regError"></p>
+
 <button onclick="register()">Создать</button>
-<button class="close" onclick="closeModal()">✕</button>
-</div>
+
+<button class="close" onclick="closeAll()">✕</button>
+
 </div>
 
+</div>
+
+
+
 <!-- ORDER -->
+
 <div class="overlay" id="orderOverlay">
-<div class="modal">
+
+<div class="modal orderModal">
 
 <h2>Сделать заказ</h2>
 
-<div class="row">
-<div class="foodLabel">Хингалш</div>
-<div class="qtyBox">
-<button onclick="changeQty('hingalshQty', -1)">-</button>
-<input id="hingalshQty" value="0" oninput="updateOptions()">
-<button onclick="changeQty('hingalshQty', 1)">+</button>
-</div>
-<label class="option">
-<input type="checkbox" id="thymeCheck" disabled> с чебрецом
+
+<div class="product">
+
+<div class="productTitle">Хингалш</div>
+
+<div class="controls">
+
+<button onclick="changeQty('hingalshQty',-1)">−</button>
+<input id="hingalshQty" value="0">
+<button onclick="changeQty('hingalshQty',1)">+</button>
+
+<label>
+<input type="checkbox" id="thymeCheck">
+с чебрецом
 </label>
+
 </div>
 
-<div class="row">
-<div class="foodLabel">Чlепалгш</div>
-<div class="qtyBox">
-<button onclick="changeQty('chepQty', -1)">-</button>
-<input id="chepQty" value="0" oninput="updateOptions()">
-<button onclick="changeQty('chepQty', 1)">+</button>
-</div>
-<label class="option">
-<input type="checkbox" id="onionCheck" disabled> с луком
-</label>
 </div>
 
-<div class="row">
-<label class="option">
-<input type="checkbox" id="cutCheck"> резать
+
+<div class="product">
+
+<div class="productTitle">Ч1епалгш</div>
+
+<div class="controls">
+
+<button onclick="changeQty('chepQty',-1)">−</button>
+<input id="chepQty" value="0">
+<button onclick="changeQty('chepQty',1)">+</button>
+
+<label>
+<input type="checkbox" id="onionCheck">
+с луком
 </label>
+
 </div>
+
+</div>
+
+
+<label>
+<input type="checkbox" id="cutCheck">
+резать
+</label>
+
+
+<div class="payBox">
+
+Оплата:
+
+<label><input type="radio" name="payMethod" value="наличными"> наличными</label>
+<label><input type="radio" name="payMethod" value="переводом"> переводом</label>
+
+</div>
+
+
+<div class="deliveryBox">
+
+<p>Способ получения:</p>
+
+<label>
+<input type="radio" name="deliveryType" value="самовывоз" checked onclick="toggleAddress()">
+самовывоз
+</label>
+
+<label>
+<input type="radio" name="deliveryType" value="доставка" onclick="toggleAddress()">
+доставка
+</label>
+
+</div>
+
+
+<input id="addressInput" placeholder="Введите адрес доставки" style="display:none;">
+
 
 <label>Ваши пожелания</label>
+
 <textarea id="wishInput"></textarea>
 
-<button class="submitOrder" onclick="submitOrder()">Заказать</button>
-<button class="close" onclick="closeOrder()">✕</button>
+
+<button class="orderSend" onclick="submitOrder()">Заказать</button>
+
+<button class="close" onclick="closeAll()">✕</button>
 
 </div>
+
 </div>
 
-<!-- ADMIN EDIT -->
-<div class="overlay" id="editOverlay">
+
+
+<!-- TOPS -->
+
+<div class="overlay" id="topOverlay">
+
 <div class="modal">
-<h3>Изменить текст</h3>
-<input id="editInput">
-<button onclick="saveEdit()">Сохранить</button>
-<button class="close" onclick="closeModal()">✕</button>
+
+<h2>Топ покупателей</h2>
+
+<div id="topList"></div>
+
+<button class="close" onclick="closeAll()">✕</button>
+
 </div>
+
 </div>
+
 
 <script src="script.js"></script>
 
