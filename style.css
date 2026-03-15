@@ -108,3 +108,14 @@ top:10px;
 background:none;
 font-size:18px;
 }
+
+.orderModal .product,
+.orderModal .cutBox,
+.orderModal .payBox,
+.orderModal .deliveryBox,
+.orderModal textarea,
+.orderModal .orderSend {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}

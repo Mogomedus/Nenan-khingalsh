@@ -85,7 +85,16 @@ function submitOrder(){
 
     let thyme=document.getElementById("thymeCheck").checked;
     let onion=document.getElementById("onionCheck").checked;
-    let cut=document.getElementById("cutCheck").checked;
+
+    // проверка радиокнопки резать/не резать
+    let cutOption=document.querySelector('input[name="cutOption"]:checked');
+    if(!cutOption){
+        alert("выберите резать или не резать");
+        return;
+    }
+
+    let cut=cutOption.value;
+
     let pay=document.querySelector('input[name="payMethod"]:checked');
     if(!pay){ alert("выберите оплату"); return; }
 
@@ -98,7 +107,7 @@ function submitOrder(){
     let text="Здравствуйте, хочу заказать ";
     if(h>0){ text+=`хингалш ${h}`; if(thyme) text+=" с чебрецом"; }
     if(c>0){ if(h>0) text+=" и "; text+=`ч1епалгш ${c}`; if(onion) text+=" с луком"; }
-    text+= cut ? ", резать" : ", не резать";
+    text+= `, ${cut}`;  // резать/не резать
     text+= `\nОплата: ${pay.value}`;
     text+= (deliveryType==="доставка") ? `\nДоставка: ${address}` : "\nСамовывоз";
     text+= (wish==="") ? "\n\nнету пожеланий" : `\n\nМои пожелания: ${wish}`;
