@@ -1,225 +1,241 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ненан Хингалш</title>
+  <title>Ненан Хингалш</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<header>
+  <header>
 
-<h1>Ненан Хингалш</h1>
+    <h1>Ненан Хингалш</h1>
 
-<div id="authArea">
+    <div id="authArea">
 
-<div id="authButtons">
-<button onclick="openLogin()">Войти</button>
-<button onclick="openRegister()">Регистрация</button>
-</div>
+      <div id="authButtons">
+        <button onclick="openLogin()">Войти</button>
+        <button onclick="openRegister()">Регистрация</button>
+      </div>
 
-<div id="userPanel" style="display:none;">
-<span id="userName"></span>
-<button onclick="logout()">Выйти</button>
-</div>
+      <div id="userPanel" style="display:none;">
+        <span id="userName"></span>
+        <button onclick="logout()">Выйти</button>
+      </div>
 
-<button onclick="openTop()">🏆</button>
+      <button onclick="openTop()">🏆</button>
 
-</div>
+    </div>
 
-<button class="orderBtn" onclick="openOrder()">Заказать</button>
 
-</header>
+  </header>
 
 
-<section class="hero">
+  <section class="hero">
 
-<h2>Свежие Хингалш и Ч1епалгш</h2>
-<p>Вкусно по домашнему</p>
+    <h2>Свежие Хингалш и Ч1епалгш</h2>
+    <p>Вкусно по домашнему</p>
 
-</section>
+    <!-- Разместите над фото товаров -->
+    <button id="orderBtn" onclick="openOrder()"
+      style="font-size:50px; padding:12px 25px; margin-bottom:20px; background:#f76c6c; color:white; border:none; border-radius:8px; cursor:pointer; margin-left: auto;margin-right: auto;">
+      Заказать
+    </button>
 
+  </section>
+  <section class="foods">
 
-<section class="foods">
 
-<div class="food">
-<img src="khingalsh.jpg">
-<h3>Хингалш —150₽ 1шт</h3>
-</div>
 
-<div class="food">
-<img src="chepalgsh.jpg">
-<h3>Ч1епалгш —150₽ 1шт</h3>
-</div>
+    <div class="food">
+      <img src="khingalsh.jpg">
+      <h3>Хингалш —150₽ 1шт</h3>
+    </div>
 
-</section>
+    <div class="food">
+      <img src="chepalgsh.jpg">
+      <h3>Ч1епалгш —150₽ 1шт</h3>
+    </div>
 
+  </section>
 
-<!-- LOGIN -->
 
-<div class="overlay" id="loginOverlay">
+  <!-- LOGIN -->
 
-<div class="modal">
+  <div class="overlay" id="loginOverlay">
 
-<h2>Вход</h2>
+    <div class="modal">
 
-<input id="loginName" placeholder="логин">
-<input id="loginPass" type="password" placeholder="пароль">
+      <h2>Вход</h2>
 
-<button onclick="login()">Войти</button>
+      <input id="loginName" placeholder="логин">
+      <input id="loginPass" type="password" placeholder="пароль">
 
-<button class="close" onclick="closeAll()">✕</button>
+      <button onclick="login()">Войти</button>
 
-</div>
+      <button class="close" onclick="closeAll()">✕</button>
 
-</div>
+    </div>
 
+  </div>
 
 
-<!-- REGISTER -->
 
-<div class="overlay" id="registerOverlay">
+  <!-- REGISTER -->
 
-<div class="modal">
+  <div class="overlay" id="registerOverlay">
 
-<h2>Регистрация</h2>
+    <div class="modal">
 
-<input id="regName" placeholder="логин">
-<input id="regPass" type="password" placeholder="пароль">
+      <h2>Регистрация</h2>
 
-<button onclick="register()">Создать</button>
+      <input id="regName" placeholder="логин">
+      <input id="regPass" type="password" placeholder="пароль">
 
-<button class="close" onclick="closeAll()">✕</button>
+      <button onclick="register()">Создать</button>
 
-</div>
+      <button class="close" onclick="closeAll()">✕</button>
 
-</div>
+    </div>
 
+  </div>
 
 
-<!-- ORDER -->
 
-<div class="overlay" id="orderOverlay">
+  <!-- ORDER -->
 
-<div class="modal orderModal">
+  <div class="overlay" id="orderOverlay">
 
-<h2>Сделать заказ</h2>
+    <div class="modal orderModal">
 
+      <h2>Сделать заказ</h2>
 
-<div class="product">
 
-<div class="productTitle">Хингалш</div>
+      <div class="product">
 
-<div class="controls">
+        <div class="productTitle">Хингалш</div>
 
-<button onclick="changeQty('hingalshQty',-1)">−</button>
-<input id="hingalshQty" value="0">
-<button onclick="changeQty('hingalshQty',1)">+</button>
+        <div class="controls">
 
-<label>
-<input type="checkbox" id="thymeCheck">
-с чебрецом
-</label>
+          <button onclick="changeQty('hingalshQty',-1)">−</button>
+          <input id="hingalshQty" value="0">
+          <button onclick="changeQty('hingalshQty',1)">+</button>
 
-</div>
+          <label>
+            <input type="checkbox" id="thymeCheck">
+            с чебрецом
+          </label>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="product">
 
-<div class="productTitle">Ч1епалгш</div>
+      <div class="product">
 
-<div class="controls">
+        <div class="productTitle">Ч1епалгш</div>
 
-<button onclick="changeQty('chepQty',-1)">−</button>
-<input id="chepQty" value="0">
-<button onclick="changeQty('chepQty',1)">+</button>
+        <div class="controls">
 
-<label>
-<input type="checkbox" id="onionCheck">
-с луком
-</label>
+          <button onclick="changeQty('chepQty',-1)">−</button>
+          <input id="chepQty" value="0">
+          <button onclick="changeQty('chepQty',1)">+</button>
 
-</div>
+          <label>
+            <input type="checkbox" id="onionCheck">
+            с луком
+          </label>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="cutBox">
-<label><input type="radio" name="cutOption" value="резать"> резать</label>
-<label><input type="radio" name="cutOption" value="не резать"> не резать</label>
-</div>
 
-<div class="payBox">
+      <div class="cutBox">
+        <label><input type="radio" name="cutOption" value="резать"> резать</label>
+        <label><input type="radio" name="cutOption" value="не резать"> не резать</label>
+      </div>
 
-Оплата:
+      <div class="payBox">
 
-<label><input type="radio" name="payMethod" value="наличными"> наличными</label>
-<label><input type="radio" name="payMethod" value="переводом"> переводом</label>
+        Оплата:
 
-</div>
+        <label><input type="radio" name="payMethod" value="наличными"> наличными</label>
+        <label><input type="radio" name="payMethod" value="переводом"> переводом</label>
 
+      </div>
 
-<div class="deliveryBox">
 
-<p>Способ получения:</p>
+      <div class="deliveryBox">
 
-<label>
-<input type="radio" name="deliveryType" value="самовывоз" checked onclick="toggleAddress()">
-самовывоз
-</label>
+        <p>Способ получения:</p>
 
-<label>
-<input type="radio" name="deliveryType" value="доставка" onclick="toggleAddress()">
-доставка
-</label>
+        <label>
+          <input type="radio" name="deliveryType" value="самовывоз" checked onclick="toggleAddress()">
+          самовывоз
+        </label>
 
-</div>
+        <label>
+          <input type="radio" name="deliveryType" value="доставка" onclick="toggleAddress()">
+          доставка
+        </label>
 
+      </div>
 
-<input id="addressInput" placeholder="Введите адрес доставки" style="display:none;">
 
+      <input id="addressInput" placeholder="Введите адрес доставки" style="display:none;">
 
-<label>Ваши пожелания</label>
 
-<textarea id="wishInput"></textarea>
+      <label>Ваши пожелания</label>
 
+      <textarea id="wishInput"></textarea>
 
-<button class="orderSend" onclick="submitOrder()">Заказать</button>
+      <div id="priceBlock" style="font-size:18px; font-weight:bold; margin-bottom:10px;">Цена: 0₽</div>
 
-<button class="close" onclick="closeAll()">✕</button>
+      <div id="delivery-warning" style="display:none; color:red; font-size:12px; margin-bottom:5px; cursor:pointer;"
+        onclick="toggleDeliveryInfo()">
+        важно! (нажмите для подробностей)
+      </div>
+      <div id="deliveryInfo" style="display:none; font-size:25px; margin-top:2px;">
+        Доставка по курьерскому тарифу
+      </div>
 
-</div>
+      <button class="orderSend" onclick="submitOrder()">Заказать</button>
 
-</div>
+      <button class="close" onclick="closeAll()">✕</button>
 
+    </div>
 
+  </div>
 
-<!-- TOPS -->
 
-<div class="overlay" id="topOverlay">
 
-<div class="modal">
+  <!-- TOPS -->
 
-<h2>Топ покупателей</h2>
+  <div class="overlay" id="topOverlay">
 
-<div id="topList"></div>
+    <div class="modal">
 
-<button class="close" onclick="closeAll()">✕</button>
+      <h2>Топ покупателей</h2>
 
-</div>
+      <div id="topList"></div>
 
-</div>
+      <button class="close" onclick="closeAll()">✕</button>
 
+    </div>
 
-<script src="script.js"></script>
+  </div>
+
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
